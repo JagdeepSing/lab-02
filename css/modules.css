@@ -1,0 +1,25 @@
+
+.animal{ 
+  min-width: 500px;
+  background-color: lightblue;
+  border-radius: 100%;
+  float: left; 
+  padding: 3%; 
+  margin: 5%;
+}
+.animal * {
+  display: block;
+  margin: 5% auto;
+}
+
+.animal img {
+  width: 20%;
+}
+#animal-wrap{ 
+  padding: 0 6%; 
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  margin: auto 0;  
+}
+
