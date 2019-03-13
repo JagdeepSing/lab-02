@@ -21,3 +21,15 @@ Start time: 10:32 am
 Finish time: 11:55 am
 
 Actual time needed to complete: 53 mins
+
+---
+
+Number and name of feature: Feature 3: CSS
+
+Estimate of time needed to complete: 60 mins
+
+Start time: 12:05
+
+Finish time:
+
+Actual time needed to complete:

@@ -15,16 +15,14 @@ $(function() {
     Picture.allKeywords = new Set();
 
     Picture.prototype.render = function(){
-      $('main').append('<section class = "clone"></section>');
+      $('#animal-wrap').append('<section class = "clone"></section>');
 
       let $picClone = $('section[class = "clone"]');
       let $picHTML = $('#photo-template').html();
 
       $picClone.html($picHTML);
       $picClone.find('h2').text(this.title);
-      $picClone.find('img').attr({'src': this.imageurl,
-                                  'width': '100px'
-                                  });
+      $picClone.find('img').attr('src', this.imageurl);
       $picClone.find('p').text(this.description);
       $picClone.removeClass('clone');
       $picClone.attr('class', this.title + ' animal ' + this.keyword);
