@@ -1,10 +1,8 @@
 $(function() {
   'use strict';
 
-  const $pickTemplate = $('#phto-template');
-
   function Picture (pic) {
-    this.imageurl = pic.img_url;
+    this.imageurl = pic.image_url;
     this.title = pic.title;
     this.description = pic.description;
     this.keyword = pic.keyword;
@@ -17,17 +15,35 @@ $(function() {
     $('main').append('<section class = "clone"></section>');
 
     let $picClone = $('section[class = "clone"]');
-    let $picHTML = $('#photo-template').html(); 
+    let $picHTML = $('#photo-template').html();
+
+    
 
     $picClone.html($picHTML);
-    $picClone.find('h2').text(this.name);
+    $picClone.find('h2').text(this.title);
     $picClone.find('img').attr('src', this.imageurl);
     $picClone.find('p').text(this.description);
     $picClone.removeClass('clone');
-    $picClone.attr('class', this.name);
+    $picClone.attr('class', this.title + ' animal');
   };
 
 
 
+  Picture.readJSON = () => {
+    $.get('data/page-1.json', 'json')
+      .then(data => {
+        data.forEach(item => {
+          Picture.allPictures.push(new Picture(item));
+        });
+      }) 
+      .then(Picture.loadPictures);
+  };
+
+  Picture.loadPictures = () => {
+    Picture.allPictures.forEach(pic => pic.render());
+    $('#photo-template').remove();
+  };
+  $(() => Picture.readJSON());
+  
 });
-//copy html templat to JS 
+//copy html templat to JS
