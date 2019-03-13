@@ -1,8 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two');
+
 body, main{
   width: 90%;
-  margin: auto;  
+  margin: auto; 
+  font-family: 'Shadows Into Light Two', cursive;
+  text-align: center;
+  padding: 5%;
+}
+
+h1 {
+  font-size: 5vw;
+  margin: 5% 0;
 }
 
 main {
   overflow: hidden;
+  margin: 0;
 }
