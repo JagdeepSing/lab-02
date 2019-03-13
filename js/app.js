@@ -14,7 +14,7 @@ $(function() {
     Picture.allPictures = [];
     Picture.allKeywords = new Set();
 
-    Picture.prototype.render = function(){
+    Picture.prototype.render = function() {
       $('#animal-wrap').append('<section class = "clone"></section>');
 
       let $picClone = $('section[class = "clone"]');
@@ -46,6 +46,7 @@ $(function() {
       Picture.allPictures.forEach(pic => pic.render());
       $('#photo-template').remove();
     };
+
     $(() => Picture.readJSON());
 
   };
@@ -56,9 +57,9 @@ $(function() {
     $('select').on('change', () => {
       let selectedKeyword = $('select option:selected').val();
 
-      // if elements are hidden and user selects default option in dropdown list, 
+      // if elements are hidden and user selects default option in dropdown list,
       // shows those elements
-      if (selectedKeyword === "default") {
+      if (selectedKeyword === 'default') {
         $('.animal:hidden').show();
       } else {
         // takes jQuery matched set and converts to an array and iterates over each HTML element
