@@ -1,11 +1,23 @@
-
+.animal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 
 .animal * {
-  display: block;
   margin: 5% auto;
 }
 
-.animal img {
-  width: 200px;
+.animal h2 {
+  font-size: 200%;
+  font-weight: 900;
 }
 
+.animal p {
+  font-size: 150%;
+}
+
+.animal img {
+  width: 70%;
+  border-radius: 30px;
+}

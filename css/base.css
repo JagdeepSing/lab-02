@@ -1,19 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two');
 
-body, main{
-  width: 90%;
+body, main {
   margin: auto; 
   font-family: 'Shadows Into Light Two', cursive;
   text-align: center;
-  padding: 5%;
 }
 
 h1 {
-  font-size: 5vw;
+  font-size: 10.5vw;
   margin: 5% 0;
+
 }
 
-main {
-  overflow: hidden;
-  margin: 0;
+select {
+  width: 50%;
+  height: 43px;
+  font-size: 14pt;
+  max-width: 200px;
+}
+
+@media (min-width:768px) {
+  h1 {
+    font-size: 60pt;
+  }
 }

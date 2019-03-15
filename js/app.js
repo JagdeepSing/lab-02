@@ -3,6 +3,9 @@ $(function() {
 
   let _displayImages = () => {
 
+    /**
+     * Picture is a constructor that takes in
+     */
     function Picture (pic) {
       this.imageurl = pic.image_url;
       this.title = pic.title;
@@ -15,14 +18,14 @@ $(function() {
     Picture.allKeywords = new Set();
 
     Picture.prototype.render = function() {
-      $('#animal-wrap').append('<section class = "clone"></section>');
+      $('#animal-wrap').append('<div class="clone"></div>');
 
-      let $picClone = $('section[class = "clone"]');
+      let $picClone = $('div[class="clone"]');
       let $picHTML = $('#photo-template').html();
 
       $picClone.html($picHTML);
       $picClone.find('h2').text(this.title);
-      $picClone.find('img').attr('src', this.imageurl);
+      $picClone.find('img').attr({ 'src':this.imageurl, 'alt':this.keyword });
       $picClone.find('p').text(this.description);
       $picClone.removeClass('clone');
       $picClone.attr('class', this.title + ' animal ' + this.keyword);
@@ -35,11 +38,17 @@ $(function() {
             Picture.allPictures.push(new Picture(item));
             Picture.allKeywords.add(item.keyword);
           });
-          Picture.allKeywords.forEach((keyword) => {
-            $('select').append(`<option value="${keyword}">${keyword.charAt(0).toUpperCase() + keyword.slice(1)}</option>`);
-          });
+          Picture.populateFilter();
         })
         .then(Picture.loadPictures);
+    };
+
+    Picture.populateFilter = () => {
+      $('option').not(':first').remove();
+
+      Picture.allKeywords.forEach((keyword) => {
+        $('select').append(`<option value="${keyword}">${keyword.charAt(0).toUpperCase() + keyword.slice(1)}</option>`);
+      });
     };
 
     Picture.loadPictures = () => {
@@ -68,9 +77,9 @@ $(function() {
         $('.animal').toArray().forEach((val) => {
           val = $(val);
           if (!val.hasClass(selectedKeyword)) {
-            val.hide();
+            val.fadeOut(200);
           } else {
-            val.show();
+            val.fadeIn(200);
           }
         });
       }
@@ -79,5 +88,5 @@ $(function() {
 
   _displayImages();
   _filterImages();
+
 });
-//copy html templat to JS
